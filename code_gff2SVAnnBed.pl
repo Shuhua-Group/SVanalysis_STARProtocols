@@ -1,5 +1,9 @@
 #!/bin/perl
 
+#* This script is used to convert gff to a bed-format file, which is used in further annotation analysis.
+
+#* [Example] perl code_gff2SVAnnBed.pl input.gff.gz out_prefix
+
 my $gff=$ARGV[0];
 my $prefix=$ARGV[1];
 
