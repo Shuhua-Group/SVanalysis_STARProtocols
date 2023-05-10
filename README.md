@@ -1,5 +1,5 @@
 # SVanalysis_STARProtocols
-A protocol for applying low-coverage whole-genome sequencing data in structure variation studies.
+A protocol for applying low-coverage whole-genome sequencing data in structural variation studies
 
 
 For complete details on the use and execution of this protocol, please refer to Liu et al. (2023)[1]
