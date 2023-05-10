@@ -109,7 +109,7 @@ done
 source $config
 cd $your_analysis_dir
 
-echo "SVprotocol_110_120_130.sh"
+echo "SVprotocol_part1.sh"
 printf "\t--sample\t%s\n" "$sample"
 printf "\t--config\t%s\n" "$config"
 printf "\t--thread\t%s\n" "$thread"
