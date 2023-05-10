@@ -66,7 +66,7 @@ while($line)
     $fasta_name=~s/>//;
     my $new_name=$hash{$fasta_name};
     print OUT ">$new_name\n";
-    print ">$fasta_name\t$new_name\n";
+    # print ">$fasta_name\t$new_name\n";
     $line=<IN>;
     while($line)
     {
