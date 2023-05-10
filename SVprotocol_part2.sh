@@ -112,7 +112,7 @@ function check_existed_file()
 source $config
 cd $your_analysis_dir
 
-echo "SVprotocol_140_150.sh"
+echo "SVprotocol_part2.sh"
 printf "\t--samplelist\t%s\n" "$samplelist"
 printf "\t--config\t%s\n" "$config"
 printf "\t--thread\t%s\n" "$thread"
