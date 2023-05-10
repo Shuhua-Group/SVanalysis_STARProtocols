@@ -1,5 +1,11 @@
 #!/usr/bin/perl
 
+
+#* This script is used to calculate the cumulative length of region overlapped with repeats (1-bp overlapped threshold)
+#* if the ratio of overlapped length > N, delete SV
+
+#* [Example] perl code_DUPrepeatRatio.pl bedtools.bed.out
+
 my $bedout=$ARGV[0];
 # GWHAMMK00000148 82910   82931   GWHAMMK00000148-72601-122800-50199-DUP  GWHAMMK00000148 82910   82931   GWHAMMK00000148:82910:82931
 open(IN,$bedout);
