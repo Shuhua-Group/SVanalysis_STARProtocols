@@ -111,9 +111,6 @@ function check_existed_file()
 #===============================================================================
 #****/ Main 
 #===============================================================================
-config=/picb/humpopg-bigdata5/liuqi/SVprotocol/example2.config
-sample=AHRm.725
-thread=12
 
 source $config
 cd $your_gene_expression_analysis_dir
