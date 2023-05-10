@@ -3,14 +3,7 @@ use strict;
 use Getopt::Long;
 use Pod::Usage;
 use File::Basename;
-use FindBin qw($Bin);
-use lib $Bin;
-use lib "/public/home/PGG/liuqi/software";
-use Soft; # use package by myself which include the path of software
 
-#==========
-my $config="/public/home/PGG/liuqi/software/config.txt";
-my $bgzip=parse_config($config,"bgzip");
 #==========
 my $vcf='';
 my $help;
@@ -23,17 +16,15 @@ pod2usage(-verbose => 0) if $help;
 
 =head1 SYNOPSIS
 
-  code_convert_GT_FT.pl 
+  code_countINDnumPerSite.pl
 
+  summary SV information in one population, e.g., SV_count, SV_freq......
+  
   Options:
   --vcf|v <STR>        graghtyper out vcf [mandatory]
   --help or -h         output help message
   
 =cut
-
-my $script_path = $Bin;
-# 尖括号中间是搜索模式，尖括号运算符能返回与该模式匹配的文件列表，这称为一个glob，比如< *.bat>
-
 
 my @suffix_list=qw(.vcf.gz .vcf);
 my ($base, $dir, $suffix) = fileparse($vcf, @suffix_list);
