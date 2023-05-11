@@ -21,3 +21,9 @@ mkdir -p $your_analysis_dir/150.sv.filtering 2>/dev/null
 
 
 Please replace the subdirectory (120.remove.duplicates) in the directory (your_analysis_dir) before running SVprotocol_part1.sh
+
+
+2. A series of files used in SV filtering and annotation analysis
+Rhipicephalus_microplus.NCBI.TIGMIC.sorted.updPos.gff.gz
+Rhipicephalus_microplus.NCBI.TIGMIC.sorted.updPos.gtf.gz
+Rhipicephalus_microplus.SR.LC.SD.mask.0based.bed
