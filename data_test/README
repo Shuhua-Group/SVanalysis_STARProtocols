@@ -1,2 +1,23 @@
 As GitHub has a strict file size limit, the following files included in the test dataset should be downloaded from Google Drive (https://drive.google.com/drive/folders/10Ajzc8RfF9xMoRMLYuKnzSvGCjjO-wvP?usp=sharing)
 
+
+1. The bam files for 3 samples:
+120.remove.duplicates/AHRm.725/AHRm.725.dedup.bam
+120.remove.duplicates/AHRm.725/AHRm.725.dedup.bam.bai
+120.remove.duplicates/HnRm.648/HnRm.648.dedup.bam
+120.remove.duplicates/HnRm.648/HnRm.648.dedup.bam.bai
+120.remove.duplicates/YNRm.729/YNRm.729.dedup.bam
+120.remove.duplicates/YNRm.729/YNRm.729.dedup.bam.bai
+
+
+Script "SVprotocol_part1.sh" will generate five directory in the directory of input and output data to be used (your_analysis_dir)
+```
+mkdir -p $your_analysis_dir/110.raw.reads.mapping 2>/dev/null
+mkdir -p $your_analysis_dir/120.remove.duplicates 2>/dev/null
+mkdir -p $your_analysis_dir/130.sv.detection 2>/dev/null
+mkdir -p $your_analysis_dir/140.sv.genotyping 2>/dev/null
+mkdir -p $your_analysis_dir/150.sv.filtering 2>/dev/null
+```
+
+
+Please replace the subdirectory (120.remove.duplicates) in the directory (your_analysis_dir) before running SVprotocol_part1.sh
