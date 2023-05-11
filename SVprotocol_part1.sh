@@ -167,6 +167,10 @@ mkdir -p 130.sv.detection/Lumpy/$sample >/dev/null
 mkdir -p 130.sv.detection/SVseq2/$sample >/dev/null
 mkdir -p 130.sv.detection/svimmer_1sample/$sample >/dev/null
 
+existed_file=$your_analysis_dir/120.remove.duplicates/$sample/$sample.dedup.bam
+check_existed_file $existed_file
+if [ $? -eq 1 ]
+then
 
 #************/ 110.raw.reads.mapping /***********************************
 existed_file=$your_analysis_dir/110.raw.reads.mapping/$sample/$sample.bam
@@ -221,6 +225,11 @@ then
 
     printf "INFO\t%-s\t%-s\n" "`date`" "Remove Duplicated finished"
 else
+    printf "INFO\t%-s\t%-s\n" "`date`" "Remove Duplicated has been executed before, we skip this step."
+fi
+
+else
+    printf "INFO\t%-s\t%-s\n" "`date`" "BWA has been executed before, we skip this step."
     printf "INFO\t%-s\t%-s\n" "`date`" "Remove Duplicated has been executed before, we skip this step."
 fi
 
