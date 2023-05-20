@@ -16,3 +16,44 @@ Reference
 2. make a new container from above image: docker run -it --name test -p 6770:22 svanalysis_starprotocols:1.0.0 /bin/bash
 3. login through ssh: ssh root@0.0.0.0 -p 6770
 4. you can do anything like in Linux server
+
+
+Owing to failed to install pacakge 'pysam', we do not install HTSeq and lumpy-sv in our docker image. After you make a container, you can install it in your container using the following commands:
+
+#! 1- install miniconda
+aria2c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -d ~ && \
+bash ~/Miniconda3-latest-Linux-x86_64.sh -b && \
+~/miniconda3/bin/conda config --add channels defaults    && \
+~/miniconda3/bin/conda config --add channels bioconda    && \
+~/miniconda3/bin/conda config --add channels conda-forge && \
+rm -f ~/Miniconda3-latest-Linux-x86_64.sh && \
+~/miniconda3/bin/conda init
+
+#! 2- install software
+~/miniconda3/bin/conda install htseq=2.0.2 && \
+~/miniconda3/bin/conda create -n python2.7.15 python=2.7.15 && \
+source activate python2.7.15 && \
+~/miniconda3/bin/conda install lumpy-sv=0.2.13 && \
+conda deactivate 
+
+# How to install all software by yourself
+mkdir -p ~/software && \
+aria2c https://github.com/broadinstitute/gatk/archive/refs/tags/4.4.0.0.tar.gz -d ~/software && \
+cd ~/software && tar -zxvf gatk-4.4.0.0.tar.gz && rm gatk-4.4.0.0.tar.gz && \
+aria2c https://sourceforge.net/projects/svseq2/files/SVseq2_2/SVseq2_2/download -d ~/software/SVseq2 && \
+cd ~/software/SVseq2 && chmod 770 ./SVseq2_2 && \
+aria2c https://github.com/arq5x/bedtools2/releases/download/v2.30.0/bedtools.static.binary -d ~/software/bedtools_v2.30.0 && \
+cd ~/software/bedtools_v2.30.0 && \
+mv bedtools.static.binary bedtools && \
+chmod a+x bedtools && \
+aria2c https://s3.amazonaws.com/plink1-assets/plink_linux_x86_64_20230116.zip -d ~/software/plink_1.9 && \
+cd ~/software/plink_1.9 && unzip plink_linux_x86_64_20230116.zip && \
+rm ~/software/plink_1.9/plink_linux_x86_64_20230116.zip && \
+aria2c https://s3.amazonaws.com/plink2-assets/plink2_linux_x86_64_20230516.zip -d ~/software/plink_2 && \
+cd ~/software/plink_2 && unzip plink2_linux_x86_64_20230516.zip && \
+rm ~/software/plink_2/plink2_linux_x86_64_20230516.zip && \
+aria2c https://github.com/broadinstitute/picard/releases/download/2.26.11/picard.jar -d ~/software/picard_2.26.11 && \
+aria2c https://github.com/DecodeGenetics/svimmer/archive/refs/heads/master.zip -d ~/software && unzip ~/software/svimmer-master.zip && rm ~/software/svimmer-master.zip && \
+aria2c https://github.com/DecodeGenetics/graphtyper/releases/download/v2.7.4/graphtyper -d ~/software/graphtyper_2.7.4 && \
+cd ~/software/graphtyper_2.7.4 && chmod a+x graphtyper
+
