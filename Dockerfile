@@ -1,8 +1,6 @@
 FROM amd64/ubuntu:focal AS builder
 
 ENV LANG=C.UTF-8 TZ=Asia/Shanghai PS=svprotocol port=22
-#设置时区、更新镜像软件、安装aria2（下载工具替代wget，curl以获取更快的下载速度，容错/下载会自动重试）
-#openssh服务并更新配置文件，使root账户可以登录、更新root账户密码为设置值
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     echo $TZ > /etc/timezone && \
     apt update && apt upgrade -y && \
