@@ -10,7 +10,22 @@ Reference
 
 [1] Liu, Q., Yang, K., Xie, B., Gao, Y., Xu, S., and Lu, Y. (2023). Mapping Structural Variations in Haemaphysalis longicornis and Rhipicephalus microplus Reveals Vector–Pathogen Adaptation. iScience 26, 106398
 
-## How to install docker image
+## How to install docker image from tar
+
+A docker image file can be downloaded from Google Drive (https://drive.google.com/drive/folders/10Ajzc8RfF9xMoRMLYuKnzSvGCjjO-wvP?usp=sharing)
+```
+#! 1- we have export a docker image file
+docker run -itd --name export svanalysis_starprotocols:1.0.0
+docker export ddd44a6aa660 > svanalysis_starprotocols.tar
+
+#! 2- user can import our image
+docker import - svanalysis_starprotocols < svanalysis_starprotocols.tar
+docker images
+
+#! then you can see a image named "svanalysis_starprotocols"
+```
+
+## How to install docker image from docker hub
 
 1. build image: docker build -t svanalysis_starprotocols:1.0.0 ./ --no-cache
 2. make a new container from above image: docker run -it --name test -p 6770:22 svanalysis_starprotocols:1.0.0 /bin/bash
