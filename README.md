@@ -14,11 +14,13 @@ Reference
 
 A docker image file can be downloaded from Google Drive (https://drive.google.com/drive/folders/10Ajzc8RfF9xMoRMLYuKnzSvGCjjO-wvP?usp=sharing)
 ```
-#! 1- we have export a docker image file
+#! 1- we have export a docker image file and upload to Google Drive
 docker run -itd --name export svanalysis_starprotocols:1.0.0
 docker export ddd44a6aa660 > svanalysis_starprotocols.tar
+tar -jcvf Docker.tar.bz2 Docker
 
-#! 2- user can import our image
+#! 2- user can download and import our image
+tar -jxvf Docker.tar.bz2
 docker import - svanalysis_starprotocols < svanalysis_starprotocols.tar
 docker images
 
