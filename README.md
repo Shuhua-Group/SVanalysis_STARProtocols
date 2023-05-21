@@ -17,17 +17,17 @@ A docker image file can be downloaded from Google Drive (https://drive.google.co
 #! 1- we have export a docker image file and upload to Google Drive
 docker run -itd --name export svanalysis_starprotocols:1.0.0
 docker export ddd44a6aa660 > svanalysis_starprotocols.tar
-tar -jcvf Docker.tar.bz2 Docker
+7z a docker_image_svanalysis_starprotocols.7z svanalysis_starprotocols.tar
 
 #! 2- user can download and import our image
-tar -jxvf Docker.tar.bz2
+7z x docker_image_svanalysis_starprotocols.7z
 docker import - svanalysis_starprotocols < svanalysis_starprotocols.tar
 docker images
 
 #! then you can see a image named "svanalysis_starprotocols"
 ```
 
-## How to install docker image from docker hub
+## How to install docker image from docker file
 
 1. build image: docker build -t svanalysis_starprotocols:1.0.0 ./ --no-cache
 2. make a new container from above image: docker run -it --name test -p 6770:22 svanalysis_starprotocols:1.0.0 /bin/bash
