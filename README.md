@@ -29,7 +29,7 @@ docker images
 
 ## How to install docker image from docker file
 
-1. go to the directory including dockerfile
+1. go to the directory including the dockerfile
 2. build image: docker build -t svanalysis_starprotocols:1.0.0 ./ --no-cache
 3. make a new container from above image: docker run -it --name test -p 6770:22 svanalysis_starprotocols:1.0.0 /bin/bash
 4. login through ssh: ssh root@0.0.0.0 -p 6770
